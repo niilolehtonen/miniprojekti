@@ -24,8 +24,8 @@ def main():
   
 
   while True:
-    inputString = input('Do you want to add a reference (yes/ no)')
-    if inputString == "yes":
+    inputString = input('What would you like to do? add/fetch/quit')
+    if inputString == "add":
       inputAuthor = input("Give the name of the author: ")
       inputTitle = input("Give the book title: ")
       inputPublisher = input("Give the name of the publisher: ")
@@ -35,12 +35,11 @@ def main():
 
       print(formatInput(inputAuthor, inputTitle, inputPublisher, inputAddress, inputYear, inputKey))
 
-    elif inputString == "no":
+    elif inputString == "fetch":
       break
-    else: 
+    
+    elif inputString == "quit": 
       break  
-
-
 
 
 
