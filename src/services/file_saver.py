@@ -4,5 +4,5 @@ class FileSaver:
 
     def save(self, book):
         with open(self.filename, "a") as file:
-            file.write(book.format_input() + "\n")
+            file.write(book.format() + "\n")
             

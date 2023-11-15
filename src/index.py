@@ -9,7 +9,7 @@ def main():
             input_title = input("Give the book title: ")
             input_publisher = input("Give the name of the publisher: ")
             input_address = input("Give the address of the publisher: ")
-            input_year = input("Give the year of the publishing: ")
+            input_year = int(input("Give the year of the publishing: "))
             input_key = input("Give key name to book in latex: ")
 
             book = Book(input_author, input_title, input_publisher, input_address, input_year, input_key)
