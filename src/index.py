@@ -1,7 +1,7 @@
 def formatInput(inputAuthor, inputTitle, inputPublisher, inputAddress, inputYear, inputKey):
 
   formated = "@book{"+inputKey
-  formated += "\n  author    = \""+inputAuthor
+  formated += ",\n  author    = \""+inputAuthor
   formated += "\",\n  title     = \""+inputTitle
   formated += "\",\n  publisher = \""+inputPublisher
   formated += "\",\n  address   = \""+inputAddress
@@ -37,7 +37,7 @@ def main():
 
     elif inputString == "fetch":
       break
-    
+
     elif inputString == "quit": 
       break  
 
