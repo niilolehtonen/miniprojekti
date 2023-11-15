@@ -1,40 +1,32 @@
-def formatInput(inputAuthor, inputTitle, inputPublisher, inputAddress, inputYear, inputKey):
-    formated = "@book{" + inputKey
-    formated += ",\n  author    = \"" + inputAuthor
-    formated += "\",\n  title     = \"" + inputTitle
-    formated += "\",\n  publisher = \"" + inputPublisher
-    formated += "\",\n  address   = \"" + inputAddress
-    formated += "\",\n  year      = " + inputYear
+def format_input(input_author, input_title, input_publisher, input_address, input_year, input_key):
+    formated = "@book{" + input_key
+    formated += ",\n  author    = \"" + input_author
+    formated += "\",\n  title     = \"" + input_title
+    formated += "\",\n  publisher = \"" + input_publisher
+    formated += "\",\n  address   = \"" + input_address
+    formated += "\",\n  year      = " + input_year
     formated += "\n}"
 
     return formated
 
 
 def main():
-    book = """@book{CitekeyBook,
-    author    = "Leonard Susskind and George Hrabovsky",
-    title     = "Classical mechanics: the theoretical minimum",
-    publisher = "Penguin Random House",
-    address   = "New York, NY",
-    year      = 2014
-  }"""
-
     while True:
-        inputString = input('What would you like to do? add/fetch/quit')
-        if inputString == "add":
-            inputAuthor = input("Give the name of the author: ")
-            inputTitle = input("Give the book title: ")
-            inputPublisher = input("Give the name of the publisher: ")
-            inputAddress = input("Give the address of the publisher: ")
-            inputYear = input("Give the year of the publishing: ")
-            inputKey = input("Give key name to book in latex: ")
+        input_string = input('What would you like to do? add/fetch/quit')
+        if input_string == "add":
+            input_author = input("Give the name of the author: ")
+            input_title = input("Give the book title: ")
+            input_publisher = input("Give the name of the publisher: ")
+            input_address = input("Give the address of the publisher: ")
+            input_year = input("Give the year of the publishing: ")
+            input_key = input("Give key name to book in latex: ")
 
-            print(formatInput(inputAuthor, inputTitle, inputPublisher, inputAddress, inputYear, inputKey))
+            print(format_input(input_author, input_title, input_publisher, input_address, input_year, input_key))
 
-        elif inputString == "fetch":
+        elif input_string == "fetch":
             break
 
-        elif inputString == "quit":
+        elif input_string == "quit":
             break
 
 
