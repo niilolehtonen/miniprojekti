@@ -1,4 +1,5 @@
 from entities.book import Book
+from services.file_saver import FileSaver
 
 def main():
     while True:
@@ -13,7 +14,8 @@ def main():
 
             book = Book(input_author, input_title, input_publisher, input_address, input_year, input_key)
 
-            print(book.format_input())
+            file_saver = FileSaver("data.bib")
+            file_saver.save(book)
 
         elif input_string == "fetch":
             break
