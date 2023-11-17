@@ -1,8 +1,8 @@
 class FileFetcher:
-    def __init__ (self):
-        pass
+    def __init__ (self, filename):
+        self.filename = filename
 
     def fetch (self):
-        with open("data.bib", "r") as file:
+        with open(self.filename, "r") as file:
             f = file.read()
         return f

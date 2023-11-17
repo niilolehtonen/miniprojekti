@@ -19,7 +19,7 @@ def main():
             file_saver.save(book)
 
         elif input_string == "fetch":
-            file_fetcher = FileFetcher()
+            file_fetcher = FileFetcher("data.bib")
             print(file_fetcher.fetch())
 
         elif input_string == "quit":
