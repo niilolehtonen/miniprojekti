@@ -4,5 +4,6 @@
 
 [Project Backlogs](https://docs.google.com/spreadsheets/d/11NJdegCoARZEY236nIOfY796KON3OBQSXL787PBoxgs/edit#gid=1285507819)
 
+[Work Time Log](https://github.com/niilolehtonen/miniprojekti/blob/main/docs/worktimelog.md)
 
 This project is licensed under the terms of the MIT license.
