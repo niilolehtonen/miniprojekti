@@ -4,7 +4,7 @@
 
 [Project Backlogs](https://docs.google.com/spreadsheets/d/11NJdegCoARZEY236nIOfY796KON3OBQSXL787PBoxgs/edit#gid=1285507819)
 
-[Architechture](./docs/arkkitehtuuri.md)
+[Architecture](./docs/architecture.md)
 
 [Work Time Log](./docs/worktimelog.md)
 
