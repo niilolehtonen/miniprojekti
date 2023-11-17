@@ -1,5 +1,6 @@
 from entities.book import Book
 from services.file_saver import FileSaver
+from services.file_fetcher import FileFetcher
 
 def main():
     while True:
@@ -18,7 +19,8 @@ def main():
             file_saver.save(book)
 
         elif input_string == "fetch":
-            break
+            file_fetcher = FileFetcher()
+            print(file_fetcher.fetch())
 
         elif input_string == "quit":
             break
