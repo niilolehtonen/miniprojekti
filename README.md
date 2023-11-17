@@ -8,4 +8,6 @@
 
 [changelog](https://github.com/niilolehtonen/miniprojekti/blob/main/docs/changelog.md)
 
+[User manual](./docs/user_manual.md)
+
 This project is licensed under the terms of the MIT license.
