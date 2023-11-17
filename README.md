@@ -6,4 +6,6 @@
 
 [Work Time Log](https://github.com/niilolehtonen/miniprojekti/blob/main/docs/worktimelog.md)
 
+[changelog](https://github.com/niilolehtonen/miniprojekti/blob/main/docs/changelog.md)
+
 This project is licensed under the terms of the MIT license.
