@@ -6,7 +6,7 @@
 
 [Work Time Log](./docs/worktimelog.md)
 
-[changelog](./docs/changelog.md)
+[Changelog](./docs/changelog.md)
 
 [User manual](./docs/user_manual.md)
 
