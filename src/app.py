@@ -36,4 +36,5 @@ def addbook_submit():
 def all_references():
     fetcher = FileFetcher("data.bib")
     data = fetcher.fetch()
+    data = data.split("\n")
     return render_template("all_references.html", data=data)

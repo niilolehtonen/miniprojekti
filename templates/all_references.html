@@ -2,7 +2,9 @@
 
 {% block body %}
 
-{{ data }}<br>
+{% for i in data %}
+ <p>{{ i }}</p>
+{% endfor %}
 <a href="/">Back to home page</a>
 {% endblock %}
 
