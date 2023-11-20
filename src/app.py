@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect
 from os import getenv
 
-from src.entities.book import Book
-from src.services.file_saver import FileSaver
+from entities.book import Book
+from services.file_fetcher import FileFetcher
+from services.file_saver import FileSaver
 
 app = Flask("ohtu_miniprojekti")
 app.secret_key = getenv("SECRET_KEY")
@@ -29,3 +30,10 @@ def addbook_submit():
     saver = FileSaver("data.bib")
     saver.save(book)
     return redirect("/")
+
+
+@app.route("/all_references")
+def all_references():
+    fetcher = FileFetcher("data.bib")
+    data = fetcher.fetch()
+    return render_template("all_references.html", data=data)
