@@ -1,7 +1,7 @@
 from entities.book import Book
 from services.file_saver import FileSaver
 from services.file_fetcher import FileFetcher
-from src.app import app
+from app import app
 
 #def main():
 #    while True:
