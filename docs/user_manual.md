@@ -12,19 +12,25 @@ Download the latest code from the GitHub repository by clicking 'Download ZIP' u
 poetry install
 ```
 
-2. Enter poetry shell:
+2. Configure the application
+* Add environment variables: ``SECRET_KEY`` 
+  * Can be added as .env file using developer dependencies
+
+3. Enter poetry shell:
 
 ```
 poetry shell
 ```
 
-3. Start the application:
+4.Start the application:
 
 ```
 python3 src/index.py
 ```
 
 ### Using the application
+
+
 
 With the program, you can save bibtex with a simple form. You can retrieve saved books from file.
 
