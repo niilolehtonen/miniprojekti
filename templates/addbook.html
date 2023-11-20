@@ -3,17 +3,36 @@
 {% block body %}
 <h1>Add a book!</h1>
 <form method="post">
+    
     <label for="author">Author: </label><br>
     <input type="text" id="author" name="author"/><br>
     <label for="title">Title: </label><br>
     <input type="text" id="title" name="title"/><br>
     <label for="publisher">Publisher: </label><br>
     <input type="text" id="publisher" name="publisher"/><br>
-    <label for="address">Address: </label><br>
-    <input type="text" id="address" name="address"/><br>
     <label for="year">Year: </label><br>
     <input type="text" id="year" name="year"/><br>
+
+    <label for="volume">Volume (optional): </label><br>
+    <input type="text" id="volume" name="volume"/><br>
+
+    <label for="series">Series (optional): </label><br>
+    <input type="text" id="series" name="series"/><br>
+
+    <label for="address">Address (optional): </label><br>
+    <input type="text" id="address" name="address"/><br>
+
+    <label for="edition">Edition (optional): </label><br>
+    <input type="text" id="edition" name="edition"/><br>
+
+    <label for="month">Month (optional): </label><br>
+    <input type="text" id="month" name="month"/><br>
+
+    <label for="note">Note (optional): </label><br>
+    <input type="text" id="note" name="note"/><br>
+
     <button type="submit" style="margin:8px">Add</button>
     
 </form>
+<a href="/">Back to home page</a>
 {% endblock %}
