@@ -12,6 +12,8 @@
 
 [User manual](./docs/user_manual.md)
 
+[Burndown chart](https://github.com/niilolehtonen/miniprojekti/blob/main/docs/images/burndown_chart.png)
+
 This project is licensed under the terms of the MIT license.
 
 ## Definition of Done
