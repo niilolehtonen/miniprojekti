@@ -1,9 +1,6 @@
-from entities.book import Book
-from services.file_saver import FileSaver
-from services.file_fetcher import FileFetcher
 from app import app
 
-#def main():
+# def main():
 #    while True:
 #        input_string = input('What would you like to do? add/fetch/quit: ')
 #        if input_string == "add":
@@ -28,5 +25,5 @@ from app import app
 
 
 if __name__ == '__main__':
-    #main()
-    app.run(port=5001,debug=True)
+    # main()
+    app.run(port=5001, debug=True)
