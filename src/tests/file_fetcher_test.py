@@ -6,8 +6,8 @@ import os
 
 class TestBook(unittest.TestCase):
     def setUp(self):
-        self.book = Book("a","a","a","a",2000,"a")
-        self.book2 = Book("b","b","b","b",2000,"b")
+        self.book = Book("a","a","a","a",2000)
+        self.book2 = Book("b","b","b","b",2000)
         self.saver = FileSaver("testdata.bib")
 
         self.book.format()
@@ -18,13 +18,13 @@ class TestBook(unittest.TestCase):
         self.fetcher = FileFetcher("testdata.bib")
 
     def test_fetch(self):
-        correct_answer = """@book{a,
+        correct_answer = """@book{a2000,
   author    = "a",
   title     = "a",
   publisher = "a",
   address   = "a",
   year      = 2000
-}\n@book{b,
+}\n@book{b2000,
   author    = "b",
   title     = "b",
   publisher = "b",

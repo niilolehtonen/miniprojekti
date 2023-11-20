@@ -5,11 +5,11 @@ import os
 
 class TestBook(unittest.TestCase):
     def setUp(self):
-        self.book = Book("a","b","c","d",2014,"e")
+        self.book = Book("a","b","c","d",2014)
         self.saver = FileSaver("testdata.bib")
 
     def test_save(self):
-        correct_answer = """@book{e,
+        correct_answer = """@book{a2014,
   author    = "a",
   title     = "b",
   publisher = "c",

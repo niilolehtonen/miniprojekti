@@ -14,7 +14,7 @@ class Book(Entry):
 
     def format(self):
         formated = "@book{" + super().generate_key(self.author, str(self.year))
-        formated += ",\n  author    = \"" + self.author
+        formated +=   ",\n  author    = \"" + self.author
         formated += "\",\n  title     = \"" + self.title
         formated += "\",\n  publisher = \"" + self.publisher
         formated += "\",\n  address   = \"" + self.address
