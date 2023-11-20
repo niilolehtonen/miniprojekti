@@ -13,3 +13,12 @@
 [User manual](./docs/user_manual.md)
 
 This project is licensed under the terms of the MIT license.
+
+## Definition of Done
+- Test coverage for completed functionality should be reasonable
+- The client has access to see the code and the CI-pipe at all times
+- Code maintainability should be as good as possible
+  - The coding style follows the rules defined by PyLint
+  - Clear and justified architeture
+  - Reasonable naming
+  - Acceptance criteria is defined for every user story and they are documented to the product backlog
