@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from os import getenv
 
 app = Flask("ohtu_miniprojekti")
@@ -7,4 +7,4 @@ app.secret_key = getenv("SECRET_KEY")
 
 @app.route("/")
 def index():
-    return "yeet"
+    return render_template("index.html")
