@@ -8,3 +8,9 @@ app.secret_key = getenv("SECRET_KEY")
 @app.route("/")
 def index():
     return render_template("index.html")
+
+@app.route("/addbook")
+def addbook():
+    return render_template("addbook.html")
+
+
