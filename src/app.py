@@ -24,9 +24,14 @@ def addbook_submit():
     author = request.form["author"]
     title = request.form["title"]
     publisher = request.form["publisher"]
-    address = request.form["address"]
     year = request.form["year"]
-    book = Book(author, title, publisher, address, int(year))
+    volume = request.form["volume"]
+    series = request.form["series"]
+    address = request.form["address"]
+    edition = request.form["edition"]
+    month = request.form["month"]
+    note = request.form["note"]
+    book = Book(author, title, publisher, int(year), int(volume), series, address, int(edition), int(month), note)
     saver = FileSaver("data.bib")
     saver.save(book)
     return redirect("/")
