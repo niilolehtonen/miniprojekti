@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from os import getenv
 
-from src.entities.book import Book
-from src.services.file_saver import FileSaver
+from entities.book import Book
+from services.file_saver import FileSaver
 
 app = Flask("ohtu_miniprojekti")
 app.secret_key = getenv("SECRET_KEY")

@@ -5,7 +5,7 @@ class Manual(Entry):
                   input_year:int, 
                   input_author:str, 
                   input_organization:str, 
-                  input_address:int, 
+                  input_address:str, 
                   input_edition:str,
                   input_month:str,
                   input_note:str
@@ -20,15 +20,15 @@ class Manual(Entry):
         self.note = input_note
 
     def format(self):
-        formated = "@manual{" + super().generate_key(self.author,self.year)
-        formated +=   ",\n  title        = \"" + self.title
-        formated +=   ",\n  author       = \"" + self.author
-        formated += "\",\n  year         = \"" + str(self.year)
-        formated += "\",\n  month        = \"" + self.month
-        formated += "\",\n  address      = \"" + self.address
-        formated += "\",\n  note         = " + self.note
-        formated += "\",\n  organization = " + self.organization
-        formated += "\",\n  edition      = "
+        formated = "@manual{" + super().generate_key(self.author,self.year) + ","
+        formated += "\n  title        = \"" + self.title + "\","
+        formated += "\n  author       = \"" + self.author + "\","
+        formated += "\n  year         = \"" + str(self.year) + "\","
+        formated += "\n  month        = \"" + self.month + "\","
+        formated += "\n  address      = \"" + self.address + "\","
+        formated += "\n  note         = \"" + self.note + "\","
+        formated += "\n  organization = \"" + self.organization + "\","
+        formated += "\n  edition      = \"" + self.edition + "\","
         formated += "\n}"
 
         return formated
