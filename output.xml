@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231121 16:58:39.301" rpa="false" schemaversion="4">
+<suite id="s1" name="Tests" source="/home/tasoki/miniprojekti/src/tests">
+<suite id="s1-s1" name="Home" source="/home/tasoki/miniprojekti/src/tests/home.robot">
+<kw name="Open And Configure Browser" library="resource" type="SETUP">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231121 16:58:39.426" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fc3198ece50&gt;</msg>
+<status status="PASS" starttime="20231121 16:58:39.425" endtime="20231121 16:58:39.426"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231121 16:58:39.426" endtime="20231121 16:58:39.426"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231121 16:58:39.426" endtime="20231121 16:58:39.426"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231121 16:58:39.427" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20231121 16:58:39.426" endtime="20231121 16:58:40.213"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231121 16:58:40.213" endtime="20231121 16:58:40.214"/>
+</kw>
+<status status="PASS" starttime="20231121 16:58:39.425" endtime="20231121 16:58:40.214"/>
+</kw>
+<test id="s1-s1-t1" name="Home Page Is Open" line="8">
+<kw name="Go To Starting Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231121 16:58:40.215" level="INFO">Opening url 'http://localhost:5001'</msg>
+<status status="PASS" starttime="20231121 16:58:40.215" endtime="20231121 16:58:40.251"/>
+</kw>
+<status status="PASS" starttime="20231121 16:58:40.214" endtime="20231121 16:58:40.251"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Home</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231121 16:58:40.256" level="INFO">Page title is 'Home'.</msg>
+<status status="PASS" starttime="20231121 16:58:40.251" endtime="20231121 16:58:40.256"/>
+</kw>
+<status status="PASS" starttime="20231121 16:58:40.214" endtime="20231121 16:58:40.257"/>
+</test>
+<test id="s1-s1-t2" name="Click Addbook Link" line="11">
+<kw name="Go To Starting Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231121 16:58:40.258" level="INFO">Opening url 'http://localhost:5001'</msg>
+<status status="PASS" starttime="20231121 16:58:40.258" endtime="20231121 16:58:40.268"/>
+</kw>
+<status status="PASS" starttime="20231121 16:58:40.257" endtime="20231121 16:58:40.268"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Add a book</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231121 16:58:40.269" level="INFO">Clicking link 'Add a book'.</msg>
+<status status="PASS" starttime="20231121 16:58:40.269" endtime="20231121 16:58:40.326"/>
+</kw>
+<kw name="Addbook Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add a book</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231121 16:58:40.330" level="INFO">Page title is 'Add a book'.</msg>
+<status status="PASS" starttime="20231121 16:58:40.327" endtime="20231121 16:58:40.330"/>
+</kw>
+<status status="PASS" starttime="20231121 16:58:40.327" endtime="20231121 16:58:40.330"/>
+</kw>
+<status status="PASS" starttime="20231121 16:58:40.257" endtime="20231121 16:58:40.330"/>
+</test>
+<test id="s1-s1-t3" name="Click All_references Link" line="15">
+<kw name="Go To Starting Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231121 16:58:40.331" level="INFO">Opening url 'http://localhost:5001'</msg>
+<status status="PASS" starttime="20231121 16:58:40.331" endtime="20231121 16:58:40.343"/>
+</kw>
+<status status="PASS" starttime="20231121 16:58:40.331" endtime="20231121 16:58:40.343"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>See all references</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231121 16:58:40.344" level="INFO">Clicking link 'See all references'.</msg>
+<status status="PASS" starttime="20231121 16:58:40.343" endtime="20231121 16:58:40.387"/>
+</kw>
+<kw name="All_references Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>All references</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231121 16:58:40.391" level="INFO">Page title is 'All references'.</msg>
+<status status="PASS" starttime="20231121 16:58:40.388" endtime="20231121 16:58:40.391"/>
+</kw>
+<status status="PASS" starttime="20231121 16:58:40.387" endtime="20231121 16:58:40.391"/>
+</kw>
+<status status="PASS" starttime="20231121 16:58:40.330" endtime="20231121 16:58:40.391"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231121 16:58:40.392" endtime="20231121 16:58:40.450"/>
+</kw>
+<status status="PASS" starttime="20231121 16:58:39.316" endtime="20231121 16:58:40.450"/>
+</suite>
+<status status="PASS" starttime="20231121 16:58:39.302" endtime="20231121 16:58:40.452"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1" name="Home">Tests.Home</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
