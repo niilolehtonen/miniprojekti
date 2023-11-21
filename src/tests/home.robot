@@ -5,9 +5,6 @@ Suite Teardown  Close Browser
 Test Setup  Go To Starting Page
 
 *** Test Cases ***
-Home Page Is Open
-    SeleniumLibrary.Title Should Be  Home
-
 Click Addbook Link
     Click Link  Add a book
     Addbook Page Should Be Open 

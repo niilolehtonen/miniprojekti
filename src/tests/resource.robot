@@ -32,46 +32,8 @@ Go To All_references Page
 Go To Starting Page
     SeleniumLibrary.Go To  ${HOME_URL} 
 
-Set author
-    [Arguments]  ${author}  
-    Input Text  author  ${author}
+Home Page Is Open
+    SeleniumLibrary.Title Should Be  Home
 
-Set title
-    [Arguments]  ${title}  
-    Input Text  title  ${title}
-
-Set publisher
-    [Arguments]  ${publisher}  
-    Input Text  publisher  ${publisher}
-
-Set year
-    [Arguments]  ${year}  
-    Input Text  year  ${year}
-
-Set volume
-    [Arguments]  ${volume}  
-    Input Text  volume  ${volume}
-
-Set series
-    [Arguments]  ${series}  
-    Input Text  series  ${series}
-
-Set address
-    [Arguments]  ${address}  
-    Input Text  address  ${address}
-
-Set edition
-    [Arguments]  ${edition}  
-    Input Text  author  ${edition}
-
-Set month
-    [Arguments]  ${month}  
-    Input Text  author  ${month}
-
-Set note
-    [Arguments]  ${note}  
-    Input Text  author  ${note}
-
-
-
-
+Submit A Book
+    Click Button  Add    
