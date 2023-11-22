@@ -4,6 +4,7 @@ from os import getenv
 from entities.book import Book
 from entities.manual import Manual
 from repositories.reference_repository import ReferenceRepository
+from services.validator import Validator
 
 app = Flask("ohtu_miniprojekti")
 app.secret_key = getenv("SECRET_KEY")
@@ -35,6 +36,9 @@ def addbook_submit():
     edition = request.form["edition"]
     month = request.form["month"]
     note = request.form["note"]
+
+    validator = Validator()
+    validator.validate_book(author,title,publisher,year,volume,series,address,edition,month,note)
     book = Book(author, title, publisher, int(year), int(volume), series, address, int(edition), int(month), note)
     saver = ReferenceRepository("data.bib")
     saver.save_book(book)
@@ -50,6 +54,9 @@ def addmanual_submit():
     edition = request.form["edition"]
     month = request.form["month"]
     note = request.form["note"]
+
+    validator = Validator()
+    validator.validate_manual(author,title,year,organization,address,edition,month,note)
     manual = Manual(title, int(year), author, organization, address, int(edition), int(month), note)
     saver = ReferenceRepository("data.bib")
     saver.save_manual(manual)
