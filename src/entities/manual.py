@@ -8,8 +8,12 @@ class Manual(Entry):
                   input_address:str, 
                   input_edition:str,
                   input_month:str,
-                  input_note:str
+                  input_note:str,
+                  keygen
                   ):
+        
+        self.keygen = keygen
+
         self.title = input_title
         self.year = input_year
         self.author = input_author
@@ -20,7 +24,7 @@ class Manual(Entry):
         self.note = input_note
 
     def format(self):
-        formated = "@manual{" + super().generate_key(self.title) + ","
+        formated = "@manual{" + self.keygen.generate_key(self.title) + ","
         formated += "\n  title        = \"" + self.title + "\","
         formated += "\n  author       = \"" + self.author + "\","
         formated += "\n  year         = " + str(self.year) + ","

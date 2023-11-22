@@ -6,11 +6,14 @@ from entities.manual import Manual
 
 import os
 
+class MockKeygen:
+    def generate_key(self, title):
+        return f"{title.split(' ')[0]}{999}"
 
 class TestBook(unittest.TestCase):
     def setUp(self):
-        self.book = Book("a","b","c",2014, 1, "d", "e", 2, 3, "f")
-        self.manual = Manual("a",2000,"c","d","e","f","g","h")
+        self.book = Book("a","b","c",2014, 1, "d", "e", 2, 3, "f", MockKeygen())
+        self.manual = Manual("a",2000,"c","d","e","f","g","h", MockKeygen())
         self.repo = ReferenceRepository("testdata.bib")
 
         self.book.format()
@@ -19,7 +22,7 @@ class TestBook(unittest.TestCase):
         self.repo.save_manual(self.manual)
 
     def test_fetch(self):
-        correct_answer = """@book{a2014,
+        correct_answer = """@book{b999,
   author    = "a",
   title     = "b",
   publisher = "c",
@@ -30,7 +33,7 @@ class TestBook(unittest.TestCase):
   edition   = 2,
   month     = 3,
   note      = "f"
-}\n@manual{c2000,
+}\n@manual{a999,
   title        = "a",
   author       = "c",
   year         = 2000,

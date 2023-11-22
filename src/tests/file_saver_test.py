@@ -4,14 +4,17 @@ import unittest
 from entities.book import Book
 from repositories.reference_repository import ReferenceRepository
 
+class MockKeygen:
+    def generate_key(self, title):
+        return f"{title.split(' ')[0]}{999}"
 
 class TestBook(unittest.TestCase):
     def setUp(self):
-        self.book = Book("a","b","c",2014, 1, "d", "e", 2, 3, "f")
+        self.book = Book("a","b","c",2014, 1, "d", "e", 2, 3, "f", MockKeygen())
         self.saver = ReferenceRepository("testdata.bib")
 
     def test_save(self):
-        correct_answer = """@book{a2014,
+        correct_answer = """@book{b999,
   author    = "a",
   title     = "b",
   publisher = "c",
