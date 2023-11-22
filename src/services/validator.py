@@ -17,6 +17,7 @@ class Validator:
             raise UserInputError("Publisher field is empty")
         if info["year"] == None:
             raise UserInputError("Year field is empty")
+
         return None
     
     def validate_manual(self,info):
