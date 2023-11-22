@@ -2,8 +2,7 @@ from flask import Flask, render_template, request, redirect
 from os import getenv
 
 from entities.book import Book
-from services.file_fetcher import FileFetcher
-from services.file_saver import FileSaver
+from repositories.reference_repository import ReferenceRepository
 
 app = Flask("ohtu_miniprojekti")
 app.secret_key = getenv("SECRET_KEY")
@@ -32,14 +31,14 @@ def addbook_submit():
     month = request.form["month"]
     note = request.form["note"]
     book = Book(author, title, publisher, int(year), int(volume), series, address, int(edition), int(month), note)
-    saver = FileSaver("data.bib")
-    saver.save(book)
+    saver = ReferenceRepository("data.bib")
+    saver.save_book(book)
     return redirect("/")
 
 
 @app.route("/all_references")
 def all_references():
-    fetcher = FileFetcher("data.bib")
+    fetcher = ReferenceRepository("data.bib")
     data = fetcher.fetch()
     data = data.split("\n")
     return render_template("all_references.html", data=data)

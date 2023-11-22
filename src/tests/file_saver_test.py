@@ -1,12 +1,14 @@
-import unittest
-from entities.book import Book
-from services.file_saver import FileSaver
 import os
+import unittest
+
+from entities.book import Book
+from repositories.reference_repository import ReferenceRepository
+
 
 class TestBook(unittest.TestCase):
     def setUp(self):
         self.book = Book("a","b","c",2014, 1, "d", "e", 2, 3, "f")
-        self.saver = FileSaver("testdata.bib")
+        self.saver = ReferenceRepository("testdata.bib")
 
     def test_save(self):
         correct_answer = """@book{a2014,
@@ -22,10 +24,10 @@ class TestBook(unittest.TestCase):
   note      = "f"
 }\n"""
         self.book.format()
-        self.saver.save(self.book)
+        self.saver.save_book(self.book)
         with open("testdata.bib") as file:
             f = file.read()
-        self.assertEqual(f,correct_answer)
+        self.assertEqual(f, correct_answer)
 
-    def tearDown(self):    
+    def tearDown(self):
         os.remove("testdata.bib")
