@@ -28,12 +28,12 @@ class Book(Entry):
         formated += "\",\n  title     = \"" + self.title
         formated += "\",\n  publisher = \"" + self.publisher
         formated += "\",\n  year      = " + str(self.year)
-        formated += "\",\n  volume    = " + str(self.volume)
-        formated += "\",\n  series    = \"" + self.series
+        formated += ",\n  volume    = " + str(self.volume)
+        formated += ",\n  series    = \"" + self.series
         formated += "\",\n  address   = \"" + self.address
         formated += "\",\n  edition   = " + str(self.edition)
-        formated += "\",\n  month     = " + str(self.month)
-        formated += "\",\n  note      = \"" + self.note
-        formated += "\n}"
+        formated += ",\n  month     = " + str(self.month)
+        formated += ",\n  note      = \"" + self.note
+        formated += "\"\n}"
 
         return formated

@@ -6,8 +6,8 @@ class Manual(Entry):
                   input_author:str, 
                   input_organization:str, 
                   input_address:str, 
-                  input_edition:str,
-                  input_month:str,
+                  input_edition:int,
+                  input_month:int,
                   input_note:str
                   ):
         self.title = input_title
@@ -24,11 +24,11 @@ class Manual(Entry):
         formated += "\n  title        = \"" + self.title + "\","
         formated += "\n  author       = \"" + self.author + "\","
         formated += "\n  year         = \"" + str(self.year) + "\","
-        formated += "\n  month        = \"" + self.month + "\","
+        formated += "\n  month        = \"" + str(self.month) + "\","
         formated += "\n  address      = \"" + self.address + "\","
         formated += "\n  note         = \"" + self.note + "\","
         formated += "\n  organization = \"" + self.organization + "\","
-        formated += "\n  edition      = \"" + self.edition + "\","
+        formated += "\n  edition      = \"" + str(self.edition) + "\","
         formated += "\n}"
 
         return formated
