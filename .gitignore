@@ -6,3 +6,6 @@ __pycache__
 htmlcov
 /.env
 *selenium-screenshot-*.png
+log.html
+output.xml
+report.html
