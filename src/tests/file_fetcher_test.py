@@ -6,8 +6,8 @@ import os
 
 class TestBook(unittest.TestCase):
     def setUp(self):
-        self.book = Book("a","a","a","a",2000)
-        self.book2 = Book("b","b","b","b",2000)
+        self.book = Book("a","a","a",2000, 1, "a", "a", 2, 3, "a")
+        self.book2 = Book("b","b","b",2000, 4, "b", "b", 5, 6, "b")
         self.saver = FileSaver("testdata.bib")
 
         self.book.format()
@@ -22,14 +22,24 @@ class TestBook(unittest.TestCase):
   author    = "a",
   title     = "a",
   publisher = "a",
+  year      = 2000,
+  volume    = 1,
+  series    = "a",
   address   = "a",
-  year      = 2000
+  edition   = 2,
+  month     = 3,
+  note      = "a"
 }\n@book{b2000,
   author    = "b",
   title     = "b",
   publisher = "b",
+  year      = 2000,
+  volume    = 4,
+  series    = "b",
   address   = "b",
-  year      = 2000
+  edition   = 5,
+  month     = 6,
+  note      = "b"
 }\n"""
         f = self.fetcher.fetch()
         self.assertEqual(f,correct_answer)

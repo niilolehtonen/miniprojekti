@@ -5,7 +5,7 @@ import os
 
 class TestBook(unittest.TestCase):
     def setUp(self):
-        self.book = Book("a","b","c","d",2014)
+        self.book = Book("a","b","c",2014, 1, "d", "e", 2, 3, "f")
         self.saver = FileSaver("testdata.bib")
 
     def test_save(self):
@@ -13,8 +13,13 @@ class TestBook(unittest.TestCase):
   author    = "a",
   title     = "b",
   publisher = "c",
-  address   = "d",
-  year      = 2014
+  year      = 2014,
+  volume    = 1,
+  series    = "d",
+  address   = "e",
+  edition   = 2,
+  month     = 3,
+  note      = "f"
 }\n"""
         self.book.format()
         self.saver.save(self.book)
