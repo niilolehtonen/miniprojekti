@@ -9,8 +9,8 @@ import os
 
 class TestBook(unittest.TestCase):
     def setUp(self):
-        self.book = Book("a","a","a",2000, 1, "a", "a", 2, 3, "a")
-        self.manual = Manual("b", 2000, "b", "b", "b", 4, 5, "b")
+        self.book = Book("a","b","c",2014, 1, "d", "e", 2, 3, "f")
+        self.manual = Manual("a",2000,"c","d","e","f","g","h")
         self.repo = ReferenceRepository("testdata.bib")
 
         self.book.format()
@@ -19,26 +19,26 @@ class TestBook(unittest.TestCase):
         self.repo.save_manual(self.manual)
 
     def test_fetch(self):
-        correct_answer = """@book{a2000,
+        correct_answer = """@book{a2014,
   author    = "a",
-  title     = "a",
-  publisher = "a",
-  year      = 2000,
+  title     = "b",
+  publisher = "c",
+  year      = 2014,
   volume    = 1,
-  series    = "a",
-  address   = "a",
+  series    = "d",
+  address   = "e",
   edition   = 2,
   month     = 3,
-  note      = "a"
-}\n@manual{b2000,
-  title         = "b",
-  author        = "b",
-  year          = 2000,
-  month         = 4,
-  address       = "b",
-  note          = "b",
-  organization  = "b",
-  edition       = 5,
+  note      = "f"
+}\n@manual{c2000,
+  title        = "a",
+  author       = "c",
+  year         = 2000,
+  month        = "g",
+  address      = "e",
+  note         = "h",
+  organization = "d",
+  edition      = "f"
 }\n"""
         f = self.repo.fetch()
         self.assertEqual(f, correct_answer)
