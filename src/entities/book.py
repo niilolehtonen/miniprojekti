@@ -23,7 +23,7 @@ class Book(Entry):
         self.note = input_note
 
     def format(self):
-        formated = "@book{" + super().generate_key(self.author, str(self.year))
+        formated = "@book{" + super().generate_key(self.title)
         formated +=   ",\n  author    = \"" + self.author
         formated += "\",\n  title     = \"" + self.title
         formated += "\",\n  publisher = \"" + self.publisher

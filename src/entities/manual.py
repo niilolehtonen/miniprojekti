@@ -20,7 +20,7 @@ class Manual(Entry):
         self.note = input_note
 
     def format(self):
-        formated = "@manual{" + super().generate_key(self.author,self.year) + ","
+        formated = "@manual{" + super().generate_key(self.title) + ","
         formated += "\n  title        = \"" + self.title + "\","
         formated += "\n  author       = \"" + self.author + "\","
         formated += "\n  year         = " + str(self.year) + ","
