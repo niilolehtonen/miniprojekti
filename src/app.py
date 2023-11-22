@@ -57,7 +57,7 @@ def addmanual_submit():
     note = request.form["note"]
     manual = Manual(title, int(year), author, organization, address, int(edition), int(month), note)
     saver = FileSaver("data.bib")
-    saver.save(manual)
+    saver.save_manual(manual)
     return redirect("/")
 
 @app.route("/all_references")

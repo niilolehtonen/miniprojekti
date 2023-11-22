@@ -2,6 +2,7 @@ import unittest
 
 from repositories.reference_repository import ReferenceRepository
 from entities.book import Book
+from entities.manual import Manual
 
 import os
 
@@ -9,13 +10,13 @@ import os
 class TestBook(unittest.TestCase):
     def setUp(self):
         self.book = Book("a","a","a",2000, 1, "a", "a", 2, 3, "a")
-        self.book2 = Book("b","b","b",2000, 4, "b", "b", 5, 6, "b")
+        self.manual = Manual("b", 2000, "b", "b", "b", 4, 5, "b")
         self.repo = ReferenceRepository("testdata.bib")
 
         self.book.format()
-        self.book2.format()
+        self.manual.format()
         self.repo.save_book(self.book)
-        self.repo.save_book(self.book2)
+        self.repo.save_manual(self.manual)
 
     def test_fetch(self):
         correct_answer = """@book{a2000,
@@ -29,17 +30,15 @@ class TestBook(unittest.TestCase):
   edition   = 2,
   month     = 3,
   note      = "a"
-}\n@book{b2000,
-  author    = "b",
-  title     = "b",
-  publisher = "b",
-  year      = 2000,
-  volume    = 4,
-  series    = "b",
-  address   = "b",
-  edition   = 5,
-  month     = 6,
-  note      = "b"
+}\n@manual{b2000,
+  title         = "b",
+  author        = "b",
+  year          = 2000,
+  month         = 4,
+  address       = "b",
+  note          = "b",
+  organization  = "b",
+  edition       = 5,
 }\n"""
         f = self.repo.fetch()
         self.assertEqual(f, correct_answer)
