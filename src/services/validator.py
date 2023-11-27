@@ -1,5 +1,3 @@
-from entities.book import Book
-
 class UserInputError(Exception):
     pass
 
@@ -18,10 +16,6 @@ class Validator:
         if info["year"] == None:
             raise UserInputError("Year field is empty")
 
-        return None
-    
     def validate_manual(self,info):
         if info["title"] == None:
             raise UserInputError("Title field is empty")
-        
-        return None
