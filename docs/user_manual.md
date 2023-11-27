@@ -32,14 +32,13 @@ python3 src/index.py
 
 
 
-With the program, you can save bibtex with a simple form. You can retrieve saved books from file.
+With the program, you can save bibtex with a simple form. You can retrieve saved texts from file.
 
-First, the program will ask you what you want to do. You can answer 'add' to add a new book entry into system. You can answer 'fetch' to retrieve all entries in bibtex format. You can answer 'quit' to quit the program. 
+First, the program will ask you what you want to do. You can answer 'add book' to add a new book entry into system. You can answer 'add manual' to add a new manual entry into system. You can answer 'fetch' to retrieve all entries in bibtex format. You can answer 'quit' to quit the program. 
 
+When adding a new entry, the system will ask both compulsory and optional information about it. Once you have entered the information, the application will either save the details to an sql database, or ask you to re-check the input fields for correct input formats. After saving the details, you will be taken back to the main page.
 
-When adding a new book, the system will ask information about it. Once you have entered the information, you will be asked again what you want to do.
-
-Once the program has retrieved the information, you will be asked again what you want to do.
+When fetching the entry details, you will be shown the details from the saved entries. 
 
 
 
