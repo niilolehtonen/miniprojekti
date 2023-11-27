@@ -1,19 +1,19 @@
 from entities.entry import Entry
 from entities.key_generator import KeyGenerator
 
+
 class Book(Entry):
-    def __init__ (self, input_author:str, 
-                  input_title:str, 
-                  input_publisher:str, 
-                  input_year:int,
-                  input_volume:int,
-                  input_series:str,
-                  input_address:str,
-                  input_edition:int,
-                  input_month:int,
-                  input_note:str,
-                  keygen):
-        
+    def __init__(self, input_author: str,
+                 input_title: str,
+                 input_publisher: str,
+                 input_year: int,
+                 input_volume: int,
+                 input_series: str,
+                 input_address: str,
+                 input_edition: int,
+                 input_month: int,
+                 input_note: str,
+                 keygen):
         self.keygen = keygen
 
         self.author = input_author
@@ -29,7 +29,7 @@ class Book(Entry):
 
     def format(self):
         formated = "@book{" + self.keygen.generate_key(self.title)
-        formated +=   ",\n  author    = \"" + self.author
+        formated += ",\n  author    = \"" + self.author
         formated += "\",\n  title     = \"" + self.title
         formated += "\",\n  publisher = \"" + self.publisher
         formated += "\",\n  year      = " + str(self.year)
