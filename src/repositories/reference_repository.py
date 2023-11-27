@@ -6,6 +6,10 @@ class ReferenceRepository:
         with open(self.filename, "a") as file:
             file.write(book.format() + "\n")
 
+    def save_entry(self, book):
+        with open(self.filename, "a") as file:
+            file.write(book.format() + "\n")
+
     def save_manual(self, manual):
         with open(self.filename, "a") as file:
             file.write(manual.format() + "\n")
