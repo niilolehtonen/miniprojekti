@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from os import getenv
 
 from entities.book import Book
+from entities.key_generator import KeyGenerator
 from entities.manual import Manual
 from repositories.reference_repository import ReferenceRepository
 from services.validator import Validator
@@ -41,11 +42,14 @@ def addbook_submit():
     information_dict["note"] = request.form["note"] or None
 
     validator = Validator()
+
+    keygen = KeyGenerator()
+
     validator.validate_book(information_dict)
     book = Book(information_dict["author"], information_dict["title"], information_dict["publisher"],
                 int(information_dict["year"]), int(information_dict["volume"]), information_dict["series"],
                 information_dict["address"], int(information_dict["edition"]), int(information_dict["month"]),
-                information_dict["note"])
+                information_dict["note"], keygen)
     saver = ReferenceRepository("data.bib")
     saver.save_book(book)
     return redirect("/")
@@ -64,9 +68,12 @@ def addmanual_submit():
     information_dict["month"] = request.form["month"] or None
     information_dict["note"] = request.form["note"] or None
 
+    keygen = KeyGenerator()
     validator = Validator()
     validator.validate_manual(information_dict)
-    manual = Manual(information_dict["title"], int(information_dict["year"]), information_dict["author"], information_dict["organization"], information_dict["address"], information_dict["edition"], information_dict["month"], information_dict["note"])
+    manual = Manual(information_dict["title"], int(information_dict["year"]), information_dict["author"],
+                    information_dict["organization"], information_dict["address"], information_dict["edition"],
+                    information_dict["month"], information_dict["note"], keygen)
     saver = ReferenceRepository("data.bib")
     saver.save_manual(manual)
     return redirect("/")

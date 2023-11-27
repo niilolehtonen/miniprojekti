@@ -1,17 +1,17 @@
 from entities.entry import Entry
 
+
 class Manual(Entry):
-    def __init__ (self, input_title:str, 
-                  input_year:int, 
-                  input_author:str, 
-                  input_organization:str, 
-                  input_address:str, 
-                  input_edition:str,
-                  input_month:str,
-                  input_note:str,
-                  keygen
-                  ):
-        
+    def __init__(self, input_title: str,
+                 input_year: int,
+                 input_author: str,
+                 input_organization: str,
+                 input_address: str,
+                 input_edition: str,
+                 input_month: str,
+                 input_note: str,
+                 keygen
+                 ):
         self.keygen = keygen
 
         self.title = input_title
