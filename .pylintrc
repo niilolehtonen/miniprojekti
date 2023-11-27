@@ -16,7 +16,9 @@ disable=raw-checker-failed,
         missing-function-docstring,
         missing-class-docstring,
         too-many-arguments,
-        line-too-long
+        line-too-long,
+        too-few-public-methods,
+        singleton-comparison
 
 [FORMAT]
 
