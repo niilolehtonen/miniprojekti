@@ -1,47 +1,71 @@
 import unittest
 
+from entities.entry import Entry
 from repositories.reference_repository import ReferenceRepository
 from entities.book import Book
 from entities.manual import Manual
 
 import os
 
+
 class MockKeygen:
     def generate_key(self, title):
         return f"{title.split(' ')[0]}{999}"
 
+
 class TestBook(unittest.TestCase):
     def setUp(self):
-        self.book = Book("a","b","c",2014, 1, "d", "e", 2, 3, "f", MockKeygen())
-        self.manual = Manual("a",2000,"c","d","e","f","g","h", MockKeygen())
+        book_data = {"author": "a",
+                     "title": "b",
+                     "publisher": "c",
+                     "year": 2014,
+                     "volume": 1,
+                     "series": "d",
+                     "address": "e",
+                     "edition": 2,
+                     "month": 3,
+                     "note": "f"
+                     }
+
+        manual_data = {"title": "a",
+                       "author": "c",
+                       "year": 2000,
+                       "month": "g",
+                       "address": "e",
+                       "note": "h",
+                       "organization": "d",
+                       "edition": "f"
+
+                       }
+
+        self.book = Entry(book_data, Book(), MockKeygen())
+        self.manual = Entry(manual_data, Manual(), MockKeygen())
         self.repo = ReferenceRepository("testdata.bib")
 
-        self.book.format()
-        self.manual.format()
-        self.repo.save_book(self.book)
-        self.repo.save_manual(self.manual)
+        self.repo.save_entry(self.book)
+        self.repo.save_entry(self.manual)
 
     def test_fetch(self):
         correct_answer = """@book{b999,
-  author    = "a",
-  title     = "b",
+  author = "a",
+  title = "b",
   publisher = "c",
-  year      = 2014,
-  volume    = 1,
-  series    = "d",
-  address   = "e",
-  edition   = 2,
-  month     = 3,
-  note      = "f"
+  year = 2014,
+  volume = 1,
+  series = "d",
+  address = "e",
+  edition = 2,
+  month = 3,
+  note = "f"
 }\n@manual{a999,
-  title        = "a",
-  author       = "c",
-  year         = 2000,
-  month        = "g",
-  address      = "e",
-  note         = "h",
+  author = "c",
+  title = "a",
+  year = 2000,
+  month = "g",
+  address = "e",
+  note = "h",
   organization = "d",
-  edition      = "f"
+  edition = "f"
 }\n"""
         f = self.repo.fetch()
         self.assertEqual(f, correct_answer)

@@ -10,7 +10,6 @@ class Entry:
 
         for optionalField in entry_type.get_optional_fields():
             if optionalField[0] in input_data.keys() and input_data[optionalField[0]] != "":
-                print(optionalField)
                 self.data[optionalField[0]] = input_data[optionalField[0]]
 
     def get_type(self):
@@ -21,7 +20,20 @@ class Entry:
         items = list(self.data.items())
         for i in range(len(items) - 1):
             item = items[i]
-            formatted += item[0] + "\t=" + str(item[1]) + ",\n"
-        formatted += items[-1][0] + "\t=" + str(items[-1][1]) + "\n"
+            formatted += "  " + item[0] + " = " + self.__format_field(item[0], item[1]) + ",\n"
+        formatted += "  " + items[-1][0] + " = " + self.__format_field(items[-1][0], items[-1][1]) + "\n"
         formatted += "}"
         return formatted
+
+    def __format_field(self, key, value):
+        fields = []
+        fields.extend(self.entryType.get_required_fields())
+        fields.extend(self.entryType.get_optional_fields())
+
+        for entry in fields:
+            if entry[0] == key:
+                if entry[1] == str:
+                    return '"' + value + '"'
+                else:
+                    return str(value)
+        return ""
