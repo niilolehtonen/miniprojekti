@@ -6,6 +6,9 @@ Add a book
 
 {% block body %}
 <h1>Add a book!</h1>
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
 <form method="post">
     
     <label for="author">Author: </label><br>

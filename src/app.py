@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 from os import getenv
 
 from entities.book import Book
@@ -33,7 +33,11 @@ def addbook_submit():
 
     keygen = KeyGenerator()
 
-    validator.validate_book(request.form)
+    errors = validator.validate_book(request.form)
+    if len(errors) > 0:
+        for i in errors:
+            flash(i)
+        return redirect("/addbook")
 
     entry = Entry(request.form, Book(), keygen)
 
@@ -46,7 +50,13 @@ def addbook_submit():
 def addmanual_submit():
     keygen = KeyGenerator()
     validator = Validator()
-    validator.validate_manual(request.form)
+
+    errors = validator.validate_manual(request.form)
+    if len(errors) > 0:
+        for i in errors:
+            flash(i)
+        return redirect("/addmanual")
+
     entry = Entry(request.form, Manual(), keygen)
     saver = ReferenceRepository("data.bib")
     saver.save_entry(entry)
