@@ -5,7 +5,16 @@ Suite Teardown  Close Browser
 Test Setup  Go To Addbook Page
 
 *** Test Cases ***
-Add A Book Correctly
+Add A Book With Only Necessary Attributes
+    Set author  Tom
+    Set title  Test
+    Set publisher  Test
+    Set year  2000
+    
+    Submit A Book
+    Home Page Is Open
+
+Add A Book With Optional Attributes
     Set author  Tom
     Set title  Test
     Set publisher  Test
@@ -18,6 +27,7 @@ Add A Book Correctly
     Set note  testnote
     Submit A Book 
     Home Page Is Open
+    
 
 *** Keywords ***
 
