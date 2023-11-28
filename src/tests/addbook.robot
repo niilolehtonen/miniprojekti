@@ -5,7 +5,7 @@ Suite Teardown  Close Browser
 Test Setup  Go To Addbook Page
 
 *** Test Cases ***
-Add A Book With Correctly
+Add A Book Correctly
     Set author  Tom
     Set title  Test
     Set publisher  Test
