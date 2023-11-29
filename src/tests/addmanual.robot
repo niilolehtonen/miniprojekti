@@ -24,7 +24,38 @@ Add A Manual With Optional Attributes
     Submit A Manual
     Home Page Is Open
     
+Add A Manual With Invalid Author
+    Set title  Test
+    Set author  34
 
+    Submit A Manual
+    Addmanual Should Fail With Message  Author should contain only letters
+
+Add A Manual With Invalid Year
+    Set title  Test
+    Set year  test
+
+    Submit A Manual
+    Addmanual Should Fail With Message  Year should contain only numbers
+
+Add A Manual With Invalid Month
+    Set title  Test
+    Set month  41
+
+    Submit A Manual
+    Addmanual Should Fail With Message  Month should contain only numbers 1 to 12
+
+Add A Manual With Invalid Author, Year And Month
+    Set title  Test
+    Set Author  34
+    Set year  test
+    Set month  41
+
+    Submit A Manual
+    Addmanual Should Fail With Message  Author should contain only letters
+    Addmanual Should Fail With Message  Year should contain only numbers
+    Addmanual Should Fail With Message  Month should contain only numbers 1 to 12
+    
 *** Keywords ***
 Set title
     [Arguments]  ${title}  
@@ -57,3 +88,8 @@ Set month
 Set note
     [Arguments]  ${note}  
     Input Text  note  ${note}
+
+Addmanual Should Fail With Message
+    [Arguments]  ${message}
+    Addmanual Page Should Be Open
+    Page Should Contain  ${message}
