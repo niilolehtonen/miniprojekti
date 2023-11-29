@@ -1,6 +1,7 @@
 import unittest
 from services.validator import Validator, UserInputError
 
+
 class ValidatorTest(unittest.TestCase):
 
     def setUp(self):
@@ -13,8 +14,8 @@ class ValidatorTest(unittest.TestCase):
         self.info["publisher"] = "MIT"
         self.info["year"] = "2018"
 
-        self.assertEqual(self.validator.validate_book(self.info), None)
-    
+        self.assertEqual(self.validator.validate_book(self.info), [])
+
     def test_validate_book_author_not_given(self):
         self.info["author"] = None
         self.info["title"] = "Algorimit"
@@ -27,7 +28,7 @@ class ValidatorTest(unittest.TestCase):
     def test_validate_manual_correct(self):
         self.info["title"] = "Ohjeet"
 
-        self.assertEqual(self.validator.validate_manual(self.info), None)
+        self.assertEqual(self.validator.validate_manual(self.info), [])
 
     def test_validate_manual_title_not_given(self):
         self.info["title"] = None
