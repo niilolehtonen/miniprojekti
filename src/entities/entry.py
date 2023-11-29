@@ -37,3 +37,11 @@ class Entry:
                 else:
                     return str(value)
         return ""
+
+    def as_human_readable(self):
+        ret = ""
+        ret += self.get_type() + " entry: \n"
+        for [key, value] in self.data.items():
+            ret += key + ": " + value + "\n"
+
+        return ret

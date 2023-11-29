@@ -5,11 +5,14 @@ from entities.book import Book
 from entities.entry import Entry
 from entities.key_generator import KeyGenerator
 from entities.manual import Manual
+from repositories.in_memory_repository import InMemoryRepository
 from repositories.reference_repository import ReferenceRepository
 from services.validator import Validator
 
 app = Flask("ohtu_miniprojekti")
 app.secret_key = getenv("SECRET_KEY")
+
+entryRepository = InMemoryRepository()
 
 
 @app.route("/")
@@ -41,8 +44,7 @@ def addbook_submit():
 
     entry = Entry(request.form, Book(), keygen)
 
-    saver = ReferenceRepository("data.bib")
-    saver.save_entry(entry)
+    entryRepository.save_entry(entry)
     return redirect("/")
 
 
@@ -58,14 +60,17 @@ def addmanual_submit():
         return redirect("/addmanual")
 
     entry = Entry(request.form, Manual(), keygen)
-    saver = ReferenceRepository("data.bib")
-    saver.save_entry(entry)
+    entryRepository.save_entry(entry)
     return redirect("/")
 
 
 @app.route("/all_references")
 def all_references():
-    fetcher = ReferenceRepository("data.bib")
-    data = fetcher.fetch()
+    data = entryRepository.as_human_readable()
     data = data.split("\n")
     return render_template("all_references.html", data=data)
+
+
+@app.route("/download_formatted")
+def download_formatted():
+    return entryRepository.fetch()
