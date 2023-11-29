@@ -58,14 +58,14 @@ class TestBook(unittest.TestCase):
   month = 3,
   note = "f"
 }\n@manual{a999,
-  author = "c",
   title = "a",
   year = 2000,
   month = "g",
   address = "e",
   note = "h",
   organization = "d",
-  edition = "f"
+  edition = "f",
+  author = "c"
 }\n"""
         f = self.repo.fetch()
         self.assertEqual(f, correct_answer)

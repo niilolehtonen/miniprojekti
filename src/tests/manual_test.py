@@ -24,14 +24,14 @@ class TestEntry(unittest.TestCase):
 
     def test_manual_creation(self):
         test_string = """@manual{a999,
-  author = "c",
   title = "a",
   year = 2000,
   month = "g",
   address = "e",
   note = "h",
   organization = "d",
-  edition = "f"
+  edition = "f",
+  author = "c"
 }"""
 
         self.assertEqual(self.manual.format(), test_string)
