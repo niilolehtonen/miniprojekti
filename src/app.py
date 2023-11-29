@@ -1,14 +1,14 @@
-from flask import Flask, render_template, request, redirect, flash
 from os import getenv
+
+from flask import Flask, render_template, request, redirect, flash
 
 from entities.book import Book
 from entities.entry import Entry
 from entities.key_generator import KeyGenerator
 from entities.manual import Manual
-from repositories.in_memory_repository import InMemoryRepository
 from repositories.reference_repository import ReferenceRepository
-from services.validator import Validator
 from services.db_connection import get_database_connection
+from services.validator import Validator
 
 app = Flask("ohtu_miniprojekti")
 app.secret_key = getenv("SECRET_KEY")
