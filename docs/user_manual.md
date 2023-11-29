@@ -22,23 +22,25 @@ poetry install
 poetry shell
 ```
 
-4.Start the application:
+4. Start the application:
 
 ```
 python3 src/index.py
 ```
 
+5. Open the application web page in a browser
+
 ### Using the application
 
 
 
-With the program, you can save bibtex with a simple form. You can retrieve saved texts from file.
+With the program, you can save bibtex with a simple form. You can download saved texts as a bibtex file or view them in a browser.
 
-First, the program will ask you what you want to do. You can answer 'add book' to add a new book entry into system. You can answer 'add manual' to add a new manual entry into system. You can answer 'fetch' to retrieve all entries in bibtex format. You can answer 'quit' to quit the program. 
+On the main page, you can select what you want to do. You can click the links of book creation, manual creation, viewing all added entries or downloading all entries as a bibtex file.
 
 When adding a new entry, the system will ask both compulsory and optional information about it. Once you have entered the information, the application will either save the details to an sql database, or ask you to re-check the input fields for correct input formats. After saving the details, you will be taken back to the main page.
 
-When fetching the entry details, you will be shown the details from the saved entries. 
+When fetching the entry details, you will be shown the details from the saved entries as a human-readable form. 
 
 
 
