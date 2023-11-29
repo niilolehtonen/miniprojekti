@@ -13,7 +13,6 @@ from services.db_connection import get_database_connection
 app = Flask("ohtu_miniprojekti")
 app.secret_key = getenv("SECRET_KEY")
 
-entryRepository = InMemoryRepository()
 
 
 connection = get_database_connection()
@@ -48,7 +47,7 @@ def addbook_submit():
 
     entry = Entry(request.form, Book(), keygen)
 
-    entryRepository.save_entry(entry)
+    reference_repository.save_entry(entry)
     return redirect("/")
 
 
@@ -64,17 +63,17 @@ def addmanual_submit():
         return redirect("/addmanual")
 
     entry = Entry(request.form, Manual(), keygen)
-    entryRepository.save_entry(entry)
+    reference_repository.save_entry(entry)
     return redirect("/")
 
 
 @app.route("/all_references")
 def all_references():
-    data = entryRepository.as_human_readable()
+    data = reference_repository.as_human_readable()
     data = data.split("\n")
     return render_template("all_references.html", data=data)
 
 
 @app.route("/download_formatted")
 def download_formatted():
-    return entryRepository.fetch()
+    return reference_repository.fetch()

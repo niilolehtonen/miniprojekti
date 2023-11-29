@@ -37,3 +37,12 @@ class ReferenceRepository:
         types = {"book": Book(), "manual": Manual()}
         return types[ref_type]
 
+    def as_human_readable(self):
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM ENTRIES")
+        rows = cursor.fetchall()
+        entries = (Entry(row,self.type_checker(row["ref_type"]),self._keygen) for row in rows)
+        ret = ""
+        for entry in entries:
+            ret += entry.as_human_readable() + "\n\n"
+        return ret
