@@ -66,7 +66,7 @@ def addmanual_submit():
 
 @app.route("/all_references")
 def all_references():
-    data = entryRepository.fetch()
+    data = entryRepository.as_human_readable()
     data = data.split("\n")
     return render_template("all_references.html", data=data)
 
