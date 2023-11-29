@@ -11,7 +11,7 @@ Add A Manual With Only Necessary Attributes
     Submit A Manual
     Home Page Is Open
 
-Add A Book With Optional Attributes
+Add A Manual With Optional Attributes
     Set title  Test
     Set author  Tom
     Set year  2000
