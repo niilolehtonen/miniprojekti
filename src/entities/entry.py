@@ -4,12 +4,12 @@ class Entry:
         self.data = {}
         self.keygen = keygen
         for requiredField in entry_type.get_required_fields():
-            if requiredField[0] not in input_data.keys():
+            if requiredField[0] not in input_data.keys() or input_data[requiredField[0]] == None:
                 raise requiredField[0] + "not found"
             self.data[requiredField[0]] = input_data[requiredField[0]]
 
         for optionalField in entry_type.get_optional_fields():
-            if optionalField[0] in input_data.keys() and input_data[optionalField[0]] != "":
+            if optionalField[0] in input_data.keys() and input_data[optionalField[0]] != None and input_data[optionalField[0]] != "":
                 self.data[optionalField[0]] = input_data[optionalField[0]]
 
     def get_type(self):

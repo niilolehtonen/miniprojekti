@@ -8,12 +8,16 @@ from entities.manual import Manual
 from repositories.in_memory_repository import InMemoryRepository
 from repositories.reference_repository import ReferenceRepository
 from services.validator import Validator
+from services.db_connection import get_database_connection
 
 app = Flask("ohtu_miniprojekti")
 app.secret_key = getenv("SECRET_KEY")
 
 entryRepository = InMemoryRepository()
 
+
+connection = get_database_connection()
+reference_repository = ReferenceRepository(connection)
 
 @app.route("/")
 def index():
