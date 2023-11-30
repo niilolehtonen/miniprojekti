@@ -14,7 +14,7 @@
 
 [User manual](./docs/user_manual.md)
 
-[Burndown chart](https://github.com/niilolehtonen/miniprojekti/blob/main/docs/images/burndouwn_chart2.png)
+[Burndown chart](https://github.com/niilolehtonen/miniprojekti/blob/main/docs/images/burndown_chart3.png)
 
 This project is licensed under the terms of the MIT license.
 
