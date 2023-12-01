@@ -1,9 +1,10 @@
 import unittest
-
 from entities.entry import Entry
 from repositories.reference_repository import ReferenceRepository
 from entities.book import Book
 from entities.manual import Manual
+from services.db_connection import get_database_connection
+from initialize_database import create_tables, drop_tables
 
 import os
 
@@ -12,9 +13,14 @@ class MockKeygen:
     def generate_key(self, title):
         return f"{title.split(' ')[0]}{999}"
 
-
 class TestBook(unittest.TestCase):
     def setUp(self):
+
+        connection = get_database_connection(testing=True)
+        self.repo = ReferenceRepository(connection)
+        drop_tables(connection)
+        create_tables(connection)
+
         book_data = {"author": "a",
                      "title": "b",
                      "publisher": "c",
@@ -40,7 +46,6 @@ class TestBook(unittest.TestCase):
 
         self.book = Entry(book_data, Book(), MockKeygen())
         self.manual = Entry(manual_data, Manual(), MockKeygen())
-        self.repo = ReferenceRepository("testdata.bib")
 
         self.repo.save_entry(self.book)
         self.repo.save_entry(self.manual)
