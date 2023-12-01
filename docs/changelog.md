@@ -9,3 +9,9 @@
 
 - Integration to a web application
 - Added entry entity
+
+## Week 3
+
+
+- Created database and integrated it to existing code
+- Finished manual entry type and created appropriate validation for entry inputs
