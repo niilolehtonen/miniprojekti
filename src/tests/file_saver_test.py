@@ -17,6 +17,7 @@ class TestBook(unittest.TestCase):
 
         self.testconnection = get_database_connection(testing=True)
         self.repo = ReferenceRepository(self.testconnection)
+        drop_tables(self.testconnection)
         create_tables(self.testconnection)
 
         data = {"author": "a",

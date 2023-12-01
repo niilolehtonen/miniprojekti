@@ -16,10 +16,10 @@ class MockKeygen:
 class TestBook(unittest.TestCase):
     def setUp(self):
 
-        connection = get_database_connection(testing=True)
-        self.repo = ReferenceRepository(connection)
-        drop_tables(connection)
-        create_tables(connection)
+        testconnection = get_database_connection(testing=True)
+        self.repo = ReferenceRepository(testconnection)
+        drop_tables(testconnection)
+        create_tables(testconnection)
 
         book_data = {"author": "a",
                      "title": "b",
@@ -76,4 +76,4 @@ class TestBook(unittest.TestCase):
         self.assertEqual(f, correct_answer)
 
     def tearDown(self):
-        os.remove("testdata.bib")
+        drop_tables(self.testconnection)
