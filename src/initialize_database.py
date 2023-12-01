@@ -32,7 +32,7 @@ def create_tables(connection):
             month TEXT,
             note TEXT,
             number TEXT,
-            organisation TEXT,
+            organization TEXT,
             pages TEXT,
             publisher TEXT,
             school TEXT,
