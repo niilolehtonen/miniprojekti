@@ -16,10 +16,10 @@ class MockKeygen:
 class TestBook(unittest.TestCase):
     def setUp(self):
 
-        testconnection = get_database_connection(testing=True)
-        self.repo = ReferenceRepository(testconnection)
-        drop_tables(testconnection)
-        create_tables(testconnection)
+        self.testconnection = get_database_connection(testing=True)
+        self.repo = ReferenceRepository(self.testconnection)
+        drop_tables(self.testconnection)
+        create_tables(self.testconnection)
 
         book_data = {"author": "a",
                      "title": "b",
@@ -51,9 +51,9 @@ class TestBook(unittest.TestCase):
         self.repo.save_entry(self.manual)
 
     def test_fetch(self):
-        correct_answer = """@book{b999,
+        correct_answer = """@book{a999,
   author = "a",
-  title = "b",
+  title = "a",
   publisher = "c",
   year = 2014,
   volume = 1,
