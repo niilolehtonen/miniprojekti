@@ -5,14 +5,14 @@ Suite Teardown  Close Browser
 Test Setup  Go To Starting Page
 
 *** Test Cases ***
-Add A Manual Correctly And See That From Allreferences
+Check If A Manual Added Correctly To Allreferences
     Go To Addmanual Page
     Set title  Test    
     Submit A Manual
     Go To All_references Page
     Allreferences Should Contain  title: Test
 
-Add A Book Correctly And See That From Allreferences
+Check If A Book Added Correctly To Allreferences
     Go To Addbook Page
     Set author  Tom
     Set title  test
