@@ -1,7 +1,7 @@
-from entities.entry import Entry
-from entities.key_generator import KeyGenerator
 from entities.book import Book
+from entities.entry import Entry
 from entities.manual import Manual
+
 
 class ReferenceRepository:
     def __init__(self, connection, keygen):
