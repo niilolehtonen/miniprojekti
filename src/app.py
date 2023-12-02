@@ -16,7 +16,7 @@ app.secret_key = getenv("SECRET_KEY")
 
 
 connection = get_database_connection()
-reference_repository = ReferenceRepository(connection)
+reference_repository = ReferenceRepository(connection, KeyGenerator())
 
 @app.route("/")
 def index():

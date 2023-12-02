@@ -4,9 +4,9 @@ from entities.book import Book
 from entities.manual import Manual
 
 class ReferenceRepository:
-    def __init__(self, connection):
+    def __init__(self, connection, keygen):
         self._connection = connection
-        self._keygen = KeyGenerator()
+        self._keygen = keygen
 
     def save_entry(self, entry):
         cursor = self._connection.cursor()

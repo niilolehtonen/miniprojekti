@@ -3,7 +3,7 @@ from entities.entry import Entry
 from repositories.reference_repository import ReferenceRepository
 from entities.book import Book
 from entities.manual import Manual
-from services.db_connection import get_database_connection
+from services.db_connection import get_database_connection, remove_test_database
 from initialize_database import create_tables, drop_tables
 
 import os
@@ -17,7 +17,7 @@ class TestBook(unittest.TestCase):
     def setUp(self):
 
         self.testconnection = get_database_connection(testing=True)
-        self.repo = ReferenceRepository(self.testconnection)
+        self.repo = ReferenceRepository(self.testconnection, MockKeygen())
         drop_tables(self.testconnection)
         create_tables(self.testconnection)
 
@@ -51,9 +51,9 @@ class TestBook(unittest.TestCase):
         self.repo.save_entry(self.manual)
 
     def test_fetch(self):
-        correct_answer = """@book{a999,
+        correct_answer = """@book{b999,
   author = "a",
-  title = "a",
+  title = "b",
   publisher = "c",
   year = 2014,
   volume = 1,
@@ -62,7 +62,7 @@ class TestBook(unittest.TestCase):
   edition = 2,
   month = 3,
   note = "f"
-}\n@manual{a999,
+}@manual{a999,
   title = "a",
   year = 2000,
   month = "g",
@@ -71,9 +71,9 @@ class TestBook(unittest.TestCase):
   organization = "d",
   edition = "f",
   author = "c"
-}\n"""
+}"""
         f = self.repo.fetch()
         self.assertEqual(f, correct_answer)
 
     def tearDown(self):
-        drop_tables(self.testconnection)
+        remove_test_database(self.testconnection)

@@ -4,8 +4,9 @@ import unittest
 from entities.book import Book
 from entities.entry import Entry
 from repositories.reference_repository import ReferenceRepository
-from services.db_connection import get_database_connection
+from services.db_connection import get_database_connection, remove_test_database
 from initialize_database import create_tables, drop_tables
+
 
 class MockKeygen:
     def generate_key(self, title):
@@ -14,9 +15,8 @@ class MockKeygen:
 
 class TestBook(unittest.TestCase):
     def setUp(self):
-
         self.testconnection = get_database_connection(testing=True)
-        self.repo = ReferenceRepository(self.testconnection)
+        self.repo = ReferenceRepository(self.testconnection, MockKeygen())
         drop_tables(self.testconnection)
         create_tables(self.testconnection)
 
@@ -34,7 +34,6 @@ class TestBook(unittest.TestCase):
         self.book = Entry(data, Book(), MockKeygen())
 
     def test_save(self):
-
         correct_answer = [
             'book entry: ',
             'author: a',
@@ -57,6 +56,5 @@ class TestBook(unittest.TestCase):
         f = f.split("\n")
         self.assertEqual(f, correct_answer)
 
-
     def tearDown(self):
-        drop_tables(self.testconnection)
+        remove_test_database(self.testconnection)

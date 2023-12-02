@@ -1,7 +1,9 @@
+import os
 import sqlite3
 
 connection = sqlite3.connect("database.db", check_same_thread=False)
 connection.row_factory = sqlite3.Row
+
 
 def get_database_connection(testing=False):
     if testing:
@@ -9,3 +11,8 @@ def get_database_connection(testing=False):
         testconnection.row_factory = sqlite3.Row
         return testconnection
     return connection
+
+
+def remove_test_database(testconnection):
+    testconnection.close()
+    os.remove("testdatabase.db")
