@@ -12,14 +12,10 @@ class Validator:
 
     def validate_book(self, info):
         errors = []
-        if info["author"] == None:
-            raise UserInputError("Author field is empty")
-        if info["title"] == None:
-            raise UserInputError("Title field is empty")
-        if info["publisher"] == None:
-            raise UserInputError("Publisher field is empty")
-        if info["year"] == None:
-            raise UserInputError("Year field is empty")
+        required_fields = ["author", "title", "publisher", "year"]
+        for field in required_fields:
+            if info.get(field) is None:
+                raise UserInputError(f"{field.capitalize()} field is empty")
 
         if re.match("[a-zA-Z]+$", info["author"]) is None:
             errors.append("Author should contain only letters")
