@@ -1,19 +1,19 @@
 class Entry:
     def __init__(self, input_data: dict, entry_type, keygen):
-        self.entryType = entry_type
+        self.entry_type = entry_type
         self.data = {}
         self.keygen = keygen
-        for requiredField in entry_type.get_required_fields():
-            if requiredField[0] not in input_data.keys() or input_data[requiredField[0]] == None:
-                raise requiredField[0] + "not found"
-            self.data[requiredField[0]] = input_data[requiredField[0]]
+        for required_field in entry_type.get_required_fields():
+            if required_field[0] not in input_data.keys() or input_data[required_field[0]] is None:
+                raise required_field[0] + "not found"
+            self.data[required_field[0]] = input_data[required_field[0]]
 
-        for optionalField in entry_type.get_optional_fields():
-            if optionalField[0] in input_data.keys() and input_data[optionalField[0]] != None and input_data[optionalField[0]] != "":
-                self.data[optionalField[0]] = input_data[optionalField[0]]
+        for optional_field in entry_type.get_optional_fields():
+            if optional_field[0] in input_data.keys() and input_data[optional_field[0]] is not None and input_data[optional_field[0]] != "":
+                self.data[optional_field[0]] = input_data[optional_field[0]]
 
     def get_type(self):
-        return self.entryType.get_type()
+        return self.entry_type.get_type()
 
     def format(self):
         formatted = "@" + self.get_type() + "{" + self.keygen.generate_key(self.data["title"]) + ",\n"
@@ -27,15 +27,14 @@ class Entry:
 
     def __format_field(self, key, value):
         fields = []
-        fields.extend(self.entryType.get_required_fields())
-        fields.extend(self.entryType.get_optional_fields())
+        fields.extend(self.entry_type.get_required_fields())
+        fields.extend(self.entry_type.get_optional_fields())
 
         for entry in fields:
             if entry[0] == key:
                 if entry[1] == str:
                     return '"' + value + '"'
-                else:
-                    return str(value)
+                return str(value)
         return ""
 
     def as_human_readable(self):

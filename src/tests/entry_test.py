@@ -1,5 +1,5 @@
 import unittest
-from entities.book import Entry
+from entities.entry import Entry
 
 class TestEntry(unittest.TestCase):
     def setUp(self):

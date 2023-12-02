@@ -1,6 +1,3 @@
-from entities.entry import Entry
-
-
 class Manual:
     #    def __init__(self, input_title: str,
     #                 input_year: int,

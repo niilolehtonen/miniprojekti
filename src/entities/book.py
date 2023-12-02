@@ -1,7 +1,3 @@
-from entities.entry import Entry
-from entities.key_generator import KeyGenerator
-
-
 class Book:
 
     def get_required_fields(self):
