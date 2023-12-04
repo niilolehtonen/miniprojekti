@@ -69,11 +69,19 @@ def addmanual_submit():
 
 @app.route("/all_references")
 def all_references():
-    data = reference_repository.as_human_readable()
-    data = data.split("\n")
-    return render_template("all_references.html", data=data)
+    data = reference_repository.view_all()
+    data_list = []
+    for entry in data:
+        data_list.append((entry[0], entry[1].split("\n")))
+    return render_template("all_references.html", data=data_list)
 
 
 @app.route("/download_formatted")
 def download_formatted():
     return reference_repository.fetch()
+
+@app.route("/delete_entry", methods=["POST"])
+def delete_entry():
+    id = request.form["id"]
+    reference_repository.delete_entry(id)
+    return redirect("/all_references")
