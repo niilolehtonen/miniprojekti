@@ -60,12 +60,10 @@ class TestBook(unittest.TestCase):
             'month: 3',
             'note: f',
             '',
-            '',
-            '',
         ]
 
         self.repo.save_entry(self.book)
-        f = self.repo.as_human_readable()
+        f = self.repo.view_all()[0][1]
         f = f.split("\n")
         self.assertEqual(f, correct_answer)
     
