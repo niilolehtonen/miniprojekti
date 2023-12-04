@@ -27,7 +27,7 @@ class Validator:
         if "volume" in info and info["volume"] != "" and re.match(r"^\d+$", info["volume"]) is None:
             errors.append("Volume should contain only numbers")
 
-        if "volume" in info and info["month"] != "" and re.match(r"^(0?[1-9]|1[0-2])$", info["month"]) is None:
+        if "month" in info and info["month"] != "" and re.match(r"^(0?[1-9]|1[0-2])$", info["month"]) is None:
             errors.append("Month should contain only numbers 1 to 12")
 
         return errors
