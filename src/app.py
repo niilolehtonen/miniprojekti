@@ -82,6 +82,6 @@ def download_formatted():
 
 @app.route("/delete_entry", methods=["POST"])
 def delete_entry():
-    id = request.form["id"]
-    reference_repository.delete_entry(id)
+    entry_id = request.form["id"]
+    reference_repository.delete_entry(entry_id)
     return redirect("/all_references")

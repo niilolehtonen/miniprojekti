@@ -45,13 +45,13 @@ class ReferenceRepository:
 
         data_array = []
         for row in rows:
-            id = row["id"]
+            entry_id = row["id"]
             entry = Entry(row, self.type_checker(row["ref_type"]), self._keygen).as_human_readable()
-            data = (id, entry)
+            data = (entry_id, entry)
             data_array.append(data)
         return data_array
 
-    def delete_entry(self, id):
+    def delete_entry(self, entry_id):
         cursor = self._connection.cursor()
-        cursor.execute("DELETE FROM ENTRIES WHERE ID=?", (id,))
+        cursor.execute("DELETE FROM ENTRIES WHERE ID=?", (entry_id,))
         self._connection.commit()
