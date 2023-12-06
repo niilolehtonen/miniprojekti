@@ -17,15 +17,15 @@ class TestBook(unittest.TestCase):
 
     def test_format(self):
             correct_answer = """@book{b999,
-  author    = "a",
-  title     = "b",
+  author = "a",
+  title = "b",
   publisher = "c",
-  year      = 2014,
-  volume    = 1,
-  series    = "d",
-  address   = "e",
-  edition   = 2,
-  month     = 3,
-  note      = "f"
+  year = 2014,
+  volume = 1,
+  series = "d",
+  address = "e",
+  edition = 2,
+  month = 3,
+  note = "f"
 }"""
             self.assertEqual(correct_answer, self.book.format())
