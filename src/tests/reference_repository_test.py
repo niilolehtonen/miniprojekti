@@ -92,10 +92,29 @@ class TestBook(unittest.TestCase):
   author = "c"
 }"""
         f = self.repo.fetch()
-        print(f)
         self.assertEqual(f, correct_answer)
 
+    def test_delete(self):
+        correct_answer = """@manual{a999,
+  title = "a",
+  year = 2000,
+  month = "g",
+  address = "e",
+  note = "h",
+  organization = "d",
+  edition = "f",
+  author = "c"
+}"""
 
+        self.repo.save_entry(self.book)
+        self.repo.save_entry(self.manual)
+        cursor = self.testconnection.cursor()
+        cursor.execute("SELECT id FROM ENTRIES WHERE ref_type=?", ("book", ))
+        id = cursor.fetchone()[0]
+        self.repo.delete_entry(id)
+
+        f = self.repo.fetch()
+        self.assertEqual(f, correct_answer)
 
     def tearDown(self):
         remove_test_database(self.testconnection)
