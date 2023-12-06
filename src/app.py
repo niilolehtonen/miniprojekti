@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect, flash
 
 from entities.book import Book
 from entities.entry import Entry
+from entities.article import Article
 from entities.key_generator import KeyGenerator
 from entities.manual import Manual
 from repositories.reference_repository import ReferenceRepository
@@ -31,6 +32,10 @@ def addbook():
 @app.route("/addmanual", methods=["GET"])
 def addmanual():
     return render_template("addmanual.html")
+
+@app.route("/addarticle", methods=["GET"])
+def addarticle():
+    return render_template("addarticle.html")
 
 
 @app.route("/addbook", methods=["POST"])
@@ -63,6 +68,21 @@ def addmanual_submit():
         return redirect("/addmanual")
 
     entry = Entry(request.form, Manual(), keygen)
+    reference_repository.save_entry(entry)
+    return redirect("/")
+
+@app.route("/addarticle", methods=["POST"])
+def addarticle_submit():
+    keygen = KeyGenerator()
+    validator = Validator()
+
+    errors = validator.validate_article(request.form)
+    if len(errors) > 0:
+        for i in errors:
+            flash(i)
+        return redirect("/addarticle")
+
+    entry = Entry(request.form, Article(), keygen)
     reference_repository.save_entry(entry)
     return redirect("/")
 

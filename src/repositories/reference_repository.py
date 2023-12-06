@@ -1,6 +1,7 @@
 from entities.book import Book
 from entities.entry import Entry
 from entities.manual import Manual
+from entities.article import Article
 
 
 class ReferenceRepository:
@@ -35,7 +36,7 @@ class ReferenceRepository:
         return formatted
 
     def type_checker(self, ref_type):
-        types = {"book": Book(), "manual": Manual()}
+        types = {"book": Book(), "manual": Manual(), "article": Article()}
         return types[ref_type]
 
     def view_all(self):

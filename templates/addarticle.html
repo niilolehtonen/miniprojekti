@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Add an article
+{% endblock %}
+
+{% block body %}
+<h1>Add an article!</h1>
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<form method="post">
+    
+    <label for="author">Author: </label><br>
+    <input type="text" id="author" name="author" required/><br>
+    <label for="title">Title: </label><br>
+    <input type="text" id="title" name="title" required/><br>
+    <label for="journal">Journal: </label><br>
+    <input type="text" id="journal" name="journal" required/><br>
+    <label for="year">Year: </label><br>
+    <input type="text" id="year" name="year" required/><br>
+
+    <label for="volume">Volume (optional): </label><br>
+    <input type="text" id="volume" name="volume"/><br>
+
+
+    <label for="number">Number (optional): </label><br>
+    <input type="text" id="number" name="number"/><br>
+
+    <label for="pages">Pages (optional): </label><br>
+    <input type="text" id="pages" name="pages"/><br>
+
+    <label for="month">Month (optional): </label><br>
+    <input type="text" id="month" name="month"/><br>
+
+    <label for="note">Note (optional): </label><br>
+    <input type="text" id="note" name="note"/><br>
+
+    <button type="submit" style="margin:8px">Add</button>
+    
+</form>
+<a href="/">Back to home page</a>
+{% endblock %}
