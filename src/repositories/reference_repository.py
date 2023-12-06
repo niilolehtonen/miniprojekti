@@ -11,17 +11,17 @@ class ReferenceRepository:
     def save_entry(self, entry):
         cursor = self._connection.cursor()
 
-        fields = "ref_type,"
-        values = f'"{entry.get_type()}",'
+        fields = "ref_type"
+        value_fields = ":ref_type"
 
         for i in entry.data.keys():
-            fields += f"{i},"
-            values += f'"{entry.data[i]}",'
+            fields += f", {i}"
+            value_fields += f", :{i}"
 
-        fields = fields[:-1]
-        values = values[:-1]
+        data = entry.data.copy()
+        data["ref_type"] = entry.get_type()
 
-        cursor.execute(f"INSERT INTO ENTRIES ({fields}) VALUES ({values})")
+        cursor.execute(f"INSERT INTO ENTRIES ({fields}) VALUES ({value_fields})", data)
         self._connection.commit()
 
     def fetch(self):
