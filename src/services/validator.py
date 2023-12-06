@@ -48,7 +48,7 @@ class Validator:
 
         return errors
 
-    def validate_article(self, info)
+    def validate_article(self, info):
         errors = []
 
         if info["author"] is None:
