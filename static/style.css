@@ -1,0 +1,21 @@
+
+body {
+    background-color: #141414;
+    color: #00dd00;
+}
+
+a {
+    color: #00ffd7;
+}
+
+input {
+    background-color: #9d9d9d;
+    border-color: #002154;
+}
+
+button {
+    background-color: #363636;
+    border-color: #ffffff;
+    color: #ffffff;
+    border-radius: 10px;
+}
