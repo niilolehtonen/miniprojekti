@@ -15,7 +15,7 @@ class TestBook(unittest.TestCase):
                 "edition": 2, "month": 3, "note": "f"}
         self.book = Entry(data, Book(), MockKeygen())
 
-        def test_format(self):
+    def test_format(self):
             correct_answer = """@book{b999,
   author    = "a",
   title     = "b",
