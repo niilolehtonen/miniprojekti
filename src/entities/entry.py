@@ -5,7 +5,7 @@ class Entry:
         self.keygen = keygen
         for required_field in entry_type.get_required_fields():
             if required_field[0] not in input_data.keys() or input_data[required_field[0]] is None:
-                raise required_field[0] + "not found"
+                raise Exception(required_field[0] + " not found")
             self.data[required_field[0]] = input_data[required_field[0]]
 
         for optional_field in entry_type.get_optional_fields():
