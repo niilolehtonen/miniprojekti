@@ -121,3 +121,32 @@ class ValidatorTest(unittest.TestCase):
 
         errors = self.validator.validate_manual(self.info)
         self.assertIn("Month should contain only numbers 1 to 12", errors)
+
+    def test_validate_article_correct(self):
+        self.info["author"] = "Author"
+        self.info["title"] = "Title"
+        self.info["journal"] = "Journal"
+        self.info["year"] = "2023"
+        self.assertEqual(self.validator.validate_article(self.info),[])
+    
+    def test_validate_article_missing_required_info(self):
+        self.info = {"author": "A", "title": "B", "journal": "C", "year" : "2023"}
+        for field in self.info:
+            req = self.info.copy()
+            req[field] = None
+            with self.assertRaises(UserInputError):
+                self.validator.validate_article(req)
+
+    def test_validate_article_author_contains_illegal_cahracters(self):
+        self.info = {"author": "B12", "title": "B", "journal": "C", "year" : "2023"}
+        errors = self.validator.validate_article(self.info)
+        self.assertIn("Author should contain only letters", errors)
+
+    def test_validate_article_illegal_characters(self):
+        self.info = {"author": "A", "title": "B", "journal": "C", "year" : "2023",
+                    "year": "2023A", "volume": "**S*", "number": "24ji", "month": "13"}
+        errors = self.validator.validate_article(self.info)
+        self.assertIn("Year should contain only numbers", errors)
+        self.assertIn("Volume should contain only numbers", errors)
+        self.assertIn("Number should contain only numbers", errors)
+        self.assertIn("Month should contain only numbers 1 to 12", errors)
