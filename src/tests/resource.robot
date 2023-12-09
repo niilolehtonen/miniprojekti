@@ -59,4 +59,6 @@ Submit A Manual
     Click Button  Add
 
 Delete A reference
-    Click Button  Delete
+    [Arguments]    ${entry_name}
+    ${xpath}    Set Variable    //div[@name='entry ${entry_name}']//button[contains(text(), 'Delete')]
+    Click Element    ${xpath}

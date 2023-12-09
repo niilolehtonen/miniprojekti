@@ -10,8 +10,7 @@ Check That Delete Button Work
     Set title  Test    
     Submit A Manual
     Go To All_references Page
-    Delete A Reference
-
+    Delete A reference  Test
 
 *** Keywords ***
 
@@ -62,4 +61,4 @@ Set series
 Allreferences Should Contain
     [Arguments]  ${message}
     All_references Page Should Be Open
-    Page Should Contain  ${message}    
+    Page Should Contain  ${message}

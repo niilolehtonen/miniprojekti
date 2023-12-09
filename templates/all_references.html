@@ -6,15 +6,17 @@
 
 {% block body %}
     {% for tuple in data %}
-        {%for  line in tuple[1]%}
-            {{ line }}<br>
-        {% endfor %}
-        <form action="/delete_entry" method="post">
-            <input type="hidden" name="id" value="{{ tuple[0] }}">
-            <button type="submit">Delete</button>
-        </form>
-        <br>
-        <br>
+        <div name="entry {{ tuple[1][1][7:] }}">
+            {%for  line in tuple[1]%}
+                {{ line }}<br>
+            {% endfor %}
+            <form action="/delete_entry" method="post">
+                <input type="hidden" name="id" value="{{ tuple[0] }}">
+                <button type="submit">Delete</button>
+            </form>
+            <br>
+            <br>
+        </div>
     {% endfor %}
     <a href="/">Back to home page</a>
 {% endblock %}
