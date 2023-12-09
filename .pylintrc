@@ -18,7 +18,8 @@ disable=raw-checker-failed,
         too-many-arguments,
         line-too-long,
         too-few-public-methods,
-        singleton-comparison
+        singleton-comparison,
+        broad-exception-raised
 
 [FORMAT]
 
