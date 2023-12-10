@@ -22,16 +22,16 @@ class TestBook(unittest.TestCase):
         create_tables(self.testconnection)
 
         book_data = {"author": "a",
-                "title": "b",
-                "publisher": "c",
-                "year": 2014,
-                "volume": 1,
-                "series": "d",
-                "address": "e",
-                "edition": 2,
-                "month": 3,
-                "note": "f"}
-        
+                     "title": "b",
+                     "publisher": "c",
+                     "year": 2014,
+                     "volume": 1,
+                     "series": "d",
+                     "address": "e",
+                     "edition": 2,
+                     "month": 3,
+                     "note": "f"}
+
         manual_data = {"title": "a",
                        "author": "c",
                        "year": 2000,
@@ -66,45 +66,45 @@ class TestBook(unittest.TestCase):
         f = self.repo.view_all()[0][1]
         f = f.split("\n")
         self.assertEqual(f, correct_answer)
-    
+
     def test_fetch(self):
         self.repo.save_entry(self.book)
         self.repo.save_entry(self.manual)
         correct_answer = """@book{b999,
-  author = "a",
-  title = "b",
-  publisher = "c",
-  year = 2014,
-  volume = 1,
-  series = "d",
-  address = "e",
-  edition = 2,
-  month = 3,
-  note = "f"
-}@manual{a999,
-  title = "a",
-  year = 2000,
-  month = "g",
-  address = "e",
-  note = "h",
-  organization = "d",
-  edition = "f",
-  author = "c"
-}"""
-        f = self.repo.fetch()
+                            author = "a",
+                            title = "b",
+                            publisher = "c",
+                            year = 2014,
+                            volume = 1,
+                            series = "d",
+                            address = "e",
+                            edition = 2,
+                            month = 3,
+                            note = "f"
+                            }@manual{a999,
+                            title = "a",
+                            year = 2000,
+                            month = "g",
+                            address = "e",
+                            note = "h",
+                            organization = "d",
+                            edition = "f",
+                            author = "c"
+                            }"""
+        f = self.repo.fetch_all()
         self.assertEqual(f, correct_answer)
 
     def test_delete(self):
         correct_answer = """@manual{a999,
-  title = "a",
-  year = 2000,
-  month = "g",
-  address = "e",
-  note = "h",
-  organization = "d",
-  edition = "f",
-  author = "c"
-}"""
+                            title = "a",
+                            year = 2000,
+                            month = "g",
+                            address = "e",
+                            note = "h",
+                            organization = "d",
+                            edition = "f",
+                            author = "c"
+                            }"""
 
         self.repo.save_entry(self.book)
         self.repo.save_entry(self.manual)
@@ -113,7 +113,7 @@ class TestBook(unittest.TestCase):
         id = cursor.fetchone()[0]
         self.repo.delete_entry(id)
 
-        f = self.repo.fetch()
+        f = self.repo.fetch_all()
         self.assertEqual(f, correct_answer)
 
     def tearDown(self):

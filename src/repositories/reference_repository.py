@@ -22,14 +22,16 @@ class ReferenceRepository:
         data = entry.data.copy()
         data["ref_type"] = entry.get_type()
 
-        cursor.execute(f"INSERT INTO ENTRIES ({fields}) VALUES ({value_fields})", data)
+        cursor.execute(
+            f"INSERT INTO ENTRIES ({fields}) VALUES ({value_fields})", data)
         self._connection.commit()
 
-    def fetch(self):
+    def fetch_all(self):
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM ENTRIES")
         rows = cursor.fetchall()
-        entries = (Entry(row, self.type_checker(row["ref_type"]), self._keygen) for row in rows)
+        entries = (Entry(row, self.type_checker(
+            row["ref_type"]), self._keygen) for row in rows)
         formatted = ""
         for entry in entries:
             formatted += entry.format()
@@ -47,7 +49,8 @@ class ReferenceRepository:
         data_array = []
         for row in rows:
             entry_id = row["id"]
-            entry = Entry(row, self.type_checker(row["ref_type"]), self._keygen).as_human_readable()
+            entry = Entry(row, self.type_checker(
+                row["ref_type"]), self._keygen).as_human_readable()
             data = (entry_id, entry)
             data_array.append(data)
         return data_array

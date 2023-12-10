@@ -26,4 +26,3 @@ This project is licensed under the terms of the MIT license.
   - Clear and justified architeture
   - Reasonable naming
   - Acceptance criteria is defined for every user story and they are documented to the product backlog
-
