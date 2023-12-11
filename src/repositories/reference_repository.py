@@ -8,6 +8,7 @@ class ReferenceRepository:
     def __init__(self, connection, keygen):
         self._connection = connection
         self._keygen = keygen
+        self._types = {"book": Book(), "manual": Manual(), "article": Article()}
 
     def save_entry(self, entry):
         cursor = self._connection.cursor()
@@ -36,8 +37,7 @@ class ReferenceRepository:
         return formatted
 
     def type_checker(self, ref_type):
-        types = {"book": Book(), "manual": Manual(), "article": Article()}
-        return types[ref_type]
+        return self._types[ref_type]
 
     def view_all(self):
         cursor = self._connection.cursor()
