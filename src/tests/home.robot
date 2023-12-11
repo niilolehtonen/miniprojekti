@@ -16,3 +16,7 @@ Click Addmanual Link
 Click All_references Link
     Click Link  See all references
     All_references Page Should Be Open
+
+Click Addarticle Link
+    Click Link  Add an article
+    Addarticle Page Should Be Open
