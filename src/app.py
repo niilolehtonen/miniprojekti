@@ -15,9 +15,9 @@ app = Flask("ohtu_miniprojekti")
 app.secret_key = getenv("SECRET_KEY")
 
 
-
 connection = get_database_connection()
 reference_repository = ReferenceRepository(connection, KeyGenerator())
+
 
 @app.route("/")
 def index():
@@ -32,6 +32,7 @@ def addbook():
 @app.route("/addmanual", methods=["GET"])
 def addmanual():
     return render_template("addmanual.html")
+
 
 @app.route("/addarticle", methods=["GET"])
 def addarticle():
@@ -71,6 +72,7 @@ def addmanual_submit():
     reference_repository.save_entry(entry)
     return redirect("/")
 
+
 @app.route("/addarticle", methods=["POST"])
 def addarticle_submit():
     keygen = KeyGenerator()
@@ -98,7 +100,8 @@ def all_references():
 
 @app.route("/download_formatted")
 def download_formatted():
-    return reference_repository.fetch()
+    return reference_repository.fetch_all()
+
 
 @app.route("/delete_entry", methods=["POST"])
 def delete_entry():
