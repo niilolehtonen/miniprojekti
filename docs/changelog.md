@@ -15,3 +15,9 @@
 
 - Created database and integrated it to existing code
 - Finished manual entry type and created appropriate validation for entry inputs
+
+## Week 4
+
+- Created functionality to delete a reference and integrated it to the application
+- Created functionality to add an article reference and integrated it to the application
+- Finished testing database functionality
