@@ -7,10 +7,11 @@ Test Setup  Go To Starting Page
 *** Test Cases ***
 Check That Delete Button Work
     Go To Addmanual Page
-    Set title  Test    
+    Set title  Test123    
     Submit A Manual
     Go To All_references Page
-    Delete A reference  Test
+    Delete A reference  Test123
+    Deleted reference Should Not Contain  Test123
 
 *** Keywords ***
 
@@ -62,3 +63,8 @@ Allreferences Should Contain
     [Arguments]  ${message}
     All_references Page Should Be Open
     Page Should Contain  ${message}
+
+Deleted reference Should Not Contain
+    [Arguments]  ${message}
+    All_references Page Should Be Open
+    Page Should Not Contain  ${message}
