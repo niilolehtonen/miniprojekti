@@ -18,7 +18,7 @@ class Validator:
         if info["year"] is None:
             raise UserInputError("Year field is empty")
 
-        if re.match(r"[a-zA-ZÄäÖö ]+$", info["author"]) is None:
+        if re.match(r"[a-zA-ZÅåÄäÖö ]+$", info["author"]) is None:
             errors.append("Author should contain only letters")
 
         if re.match(r"^\d+$", info["year"]) is None:
@@ -37,7 +37,7 @@ class Validator:
         if info["title"] is None:
             raise UserInputError("Title field is empty")
 
-        if "author" in info and info["author"] != "" and re.match(r"[a-zA-ZÄäÖö ]+$", info["author"]) is None:
+        if "author" in info and info["author"] != "" and re.match(r"[a-zA-ZÅåÄäÖö ]+$", info["author"]) is None:
             errors.append("Author should contain only letters")
 
         if "year" in info and info["year"] != "" and re.match(r"^\d+$", info["year"]) is None:
@@ -60,7 +60,7 @@ class Validator:
         if info["year"] is None:
             raise UserInputError("Year field is empty")
 
-        if re.match(r"[a-zA-ZÄäÖö ]+$", info["author"]) is None:
+        if re.match(r"[a-zA-ZÅåÄäÖö ]+$", info["author"]) is None:
             errors.append("Author should contain only letters")
 
         if re.match(r"^\d+$", info["year"]) is None:
