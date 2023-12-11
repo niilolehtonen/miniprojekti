@@ -11,7 +11,7 @@ class MockKeygen:
 class TestBook(unittest.TestCase):
     def setUp(self):
         # self.book = Book("a","b","c",2014, 1, "d", "e", 2, 3, "f", MockKeygen())
-        data = {"author": "a", "title": "b", "journal": "c", "year": 2014, "volume": 1, "number": 2,
+        data = {"author": "a", "title": "b", "journal": "c", "year": 2014, "volume": "1", "number": "2",
                 "pages": "20-25", "month": 3, "note": "f"}
         self.article = Entry(data, Article(), MockKeygen())
 
@@ -21,8 +21,8 @@ class TestBook(unittest.TestCase):
   title = "b",
   journal = "c",
   year = 2014,
-  volume = 1,
-  number = 2,
+  volume = "1",
+  number = "2",
   pages = "20-25",
   month = 3,
   note = "f"
