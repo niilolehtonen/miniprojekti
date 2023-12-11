@@ -3,11 +3,12 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${SERVER}  localhost:5001
-${DELAY}  0.4 seconds
+${DELAY}  0 seconds
 ${HOME_URL}  http://${SERVER}
 ${ADD_BOOK_URL}  http://${SERVER}/addbook
 ${ADD_MANUAL_URL}  http://${SERVER}/addmanual
 ${ALL_REFERENCES_URL}  http://${SERVER}/all_references
+${ADD_ARTICLE_URL}  http://${SERVER}/addarticle
 
 *** Keywords ***
 Open And Configure Browser
@@ -33,6 +34,9 @@ Addbook Page Should Be Open
 Addmanual Page Should Be Open
     SeleniumLibrary.Title Should be  Add a manual
 
+Addarticle Page Should Be Open
+    SeleniumLibrary.Title Should be  Add an article
+
 All_references Page Should Be Open
     SeleniumLibrary.Title Should be  All references
 
@@ -46,6 +50,9 @@ Go To Addmanual Page
 Go To All_references Page
     Go To  ${ALL_REFERENCES_URL}
 
+Go TO Addarticle Page
+    Go To  ${ADD_ARTICLE_URL}
+
 Go To Starting Page
     SeleniumLibrary.Go To  ${HOME_URL} 
 
@@ -56,6 +63,9 @@ Submit A Book
     Click Button  Add    
 
 Submit A Manual
+    Click Button  Add
+
+Submit An Article
     Click Button  Add
 
 Delete A reference
