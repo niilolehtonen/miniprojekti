@@ -4,7 +4,7 @@
 
 [Test coverage](https://app.codecov.io/gh/niilolehtonen/miniprojekti)
 
-[Project Backlogs](https://docs.google.com/spreadsheets/d/11NJdegCoARZEY236nIOfY796KON3OBQSXL787PBoxgs/edit#gid=1285507819)
+[Project Backlogs](https://docs.google.com/spreadsheets/d/11NJdegCoARZEY236nIOfY796KON3OBQSXL787PBoxgs/edit#gid=0)
 
 [Architecture](./docs/architecture.md)
 
