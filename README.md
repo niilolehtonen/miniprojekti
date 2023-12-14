@@ -16,6 +16,8 @@
 
 [Burndown chart](https://github.com/niilolehtonen/miniprojekti/blob/main/docs/images/burndown_chart4.png)
 
+[Report about the course of the project (in Finnish)](https://docs.google.com/document/d/1yrEAfGLNnBlH0QC6LXqrcyEYZCt-WDWiwK1QDnhg8AI)
+
 This project is licensed under the terms of the MIT license.
 
 ## Definition of Done
